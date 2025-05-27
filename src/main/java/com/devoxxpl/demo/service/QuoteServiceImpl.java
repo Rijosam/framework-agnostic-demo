@@ -1,0 +1,32 @@
+package com.devoxxpl.demo.service;
+
+import com.devoxxpl.demo.model.Quote;
+import com.devoxxpl.demo.repository.QuoteRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Random;
+
+@Service
+public class QuoteServiceImpl implements QuoteService {
+
+    private final QuoteRepository quoteRepository;
+    private final Random random = new Random();
+
+    @Autowired  // this is not needed just for the demo.
+    public QuoteServiceImpl(QuoteRepository quoteRepository) {
+        this.quoteRepository = quoteRepository;
+    }
+
+    @Override
+    public Quote getRandomQuote() {
+        List<Quote> quotes = quoteRepository.findAll();
+        if (quotes.isEmpty()) {
+            return null;
+        }
+        int index = random.nextInt(quotes.size());
+        return quotes.get(index);
+    }
+}
+
