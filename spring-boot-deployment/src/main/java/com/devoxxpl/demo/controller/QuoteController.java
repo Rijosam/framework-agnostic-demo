@@ -1,7 +1,7 @@
 package com.devoxxpl.demo.controller;
 
-import com.devoxxpl.demo.model.Quote;
-import com.devoxxpl.demo.service.QuoteService;
+import com.devoxxpl.business.model.QuoteDto;
+import com.devoxxpl.business.service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +17,8 @@ public class QuoteController {
     }
 
     @GetMapping("/quote")
-    public Quote getRandomQuote() {
-        Quote randomQuote = quoteService.getRandomQuote();
+    public QuoteDto getRandomQuote() {
+        QuoteDto randomQuote = quoteService.getRandomQuote();
         if (randomQuote == null) {
             throw new RuntimeException("No quotes found in the database.");
         }

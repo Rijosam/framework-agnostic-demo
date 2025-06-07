@@ -1,7 +1,7 @@
 package com.devoxxpl.demo.config;
 
-import com.devoxxpl.demo.model.Quote;
-import com.devoxxpl.demo.repository.QuoteRepository;
+import com.devoxxpl.database.entity.Quote;
+import com.devoxxpl.database.repository.QuoteRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,4 +31,3 @@ public class DataInitializer {
         };
     }
 }
-
