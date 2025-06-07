@@ -2,13 +2,24 @@ package com.devoxxpl.database.repository;
 
 
 import com.devoxxpl.database.entity.Quote;
+import jakarta.persistence.EntityManager;
 
 import java.util.List;
-import java.util.Optional;
 
+public class QuoteRepository {
 
-public interface QuoteRepository {
-    void saveQuote(Quote quote);
-    Optional<Quote> findQuoteById(Long id);
-    List<Quote> findAllQuotes();
+    private final EntityManager entityManager;
+
+    public QuoteRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    public void saveQuote(Quote quote) {
+        entityManager.persist(quote);
+    }
+
+    public List<Quote> findAllQuotes() {
+        return entityManager.createQuery("SELECT q FROM Quote q", Quote.class)
+                .getResultList();
+    }
 }
