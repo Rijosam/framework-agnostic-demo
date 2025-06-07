@@ -4,12 +4,12 @@ package com.devoxxpl.business.service;
 import com.devoxxpl.business.model.QuoteDto;
 import com.devoxxpl.database.entity.Quote;
 import com.devoxxpl.database.repository.QuoteRepository;
-import jakarta.inject.Named;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
 import java.util.Random;
 
-@Named
+@ApplicationScoped
 public class QuoteServiceImpl implements QuoteService {
 
     private final QuoteRepository quoteRepository;
@@ -21,7 +21,7 @@ public class QuoteServiceImpl implements QuoteService {
 
     @Override
     public QuoteDto getRandomQuote() {
-        List<Quote> quotes = quoteRepository.findAll();
+        List<Quote> quotes = quoteRepository.findAllQuote();
         if (quotes.isEmpty()) {
             return null;
         }
