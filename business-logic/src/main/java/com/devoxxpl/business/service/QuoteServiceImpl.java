@@ -21,7 +21,7 @@ public class QuoteServiceImpl implements QuoteService {
 
     @Override
     public QuoteDto getRandomQuote() {
-        List<Quote> quotes = quoteRepository.findAllQuote();
+        List<Quote> quotes = quoteRepository.findAllQuotes();
         if (quotes.isEmpty()) {
             return null;
         }

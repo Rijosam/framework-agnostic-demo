@@ -8,7 +8,7 @@ import java.util.Optional;
 
 
 public interface QuoteRepository {
-    Quote saveQuote(Quote quote);
+    void saveQuote(Quote quote);
     Optional<Quote> findQuoteById(Long id);
-    List<Quote> findAllQuote();
+    List<Quote> findAllQuotes();
 }
