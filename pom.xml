@@ -34,10 +34,10 @@
     </dependencies>
     <packaging>pom</packaging>
     <properties>
-        <java.version>24</java.version>
+        <java.version>21</java.version>
         <spring-boot-version>3.4.5</spring-boot-version>
-        <maven.compiler.source>24</maven.compiler.source>
-        <maven.compiler.target>24</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <h2.version>2.3.232</h2.version>
         <jakarta.inject-api.version>2.0.1</jakarta.inject-api.version>
