@@ -4,12 +4,10 @@ package com.devoxxpl.business.service;
 import com.devoxxpl.business.model.QuoteDto;
 import com.devoxxpl.database.entity.Quote;
 import com.devoxxpl.database.repository.QuoteRepository;
-import jakarta.inject.Named;
 
 import java.util.List;
 import java.util.Random;
 
-@Named
 public class QuoteServiceImpl implements QuoteService {
 
     private final QuoteRepository quoteRepository;

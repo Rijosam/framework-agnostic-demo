@@ -19,10 +19,6 @@
             <artifactId>database-module</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>jakarta.inject</groupId>
-            <artifactId>jakarta.inject-api</artifactId>
-        </dependency>
     </dependencies>
     
 </project>
