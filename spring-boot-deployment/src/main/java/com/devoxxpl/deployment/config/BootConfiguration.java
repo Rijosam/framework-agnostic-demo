@@ -1,4 +1,4 @@
-package com.devoxxpl.demo.config;
+package com.devoxxpl.deployment.config;
 
 import com.devoxxpl.business.service.QuoteService;
 import jakarta.persistence.EntityManagerFactory;

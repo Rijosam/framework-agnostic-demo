@@ -1,4 +1,4 @@
-package com.devoxxpl.demo.controller;
+package com.devoxxpl.deployment.controller;
 
 import com.devoxxpl.business.model.QuoteDto;
 import com.devoxxpl.business.service.QuoteService;
