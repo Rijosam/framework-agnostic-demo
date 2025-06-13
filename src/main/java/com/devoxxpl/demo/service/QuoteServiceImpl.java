@@ -14,7 +14,7 @@ public class QuoteServiceImpl implements QuoteService {
     private final QuoteRepository quoteRepository;
     private final Random random = new Random();
 
-    @Autowired  // this is not needed just for the demo.
+    @Autowired  // just for the demo.
     public QuoteServiceImpl(QuoteRepository quoteRepository) {
         this.quoteRepository = quoteRepository;
     }
