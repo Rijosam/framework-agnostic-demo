@@ -50,7 +50,7 @@
 
         <dependency>
             <groupId>com.devoxxpl</groupId>
-            <artifactId>businness-logic</artifactId>
+            <artifactId>business-logic</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
