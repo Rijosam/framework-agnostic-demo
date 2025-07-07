@@ -1,4 +1,4 @@
-package com.devoxxpl.database.entity;
+package com.agnostic.database.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

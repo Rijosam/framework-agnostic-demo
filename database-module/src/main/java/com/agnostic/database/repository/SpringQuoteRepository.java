@@ -1,7 +1,7 @@
-package com.devoxxpl.database.repository;
+package com.agnostic.database.repository;
 
 
-import com.devoxxpl.database.entity.Quote;
+import com.agnostic.database.entity.Quote;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

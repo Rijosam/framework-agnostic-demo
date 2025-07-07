@@ -1,7 +1,7 @@
-package com.devoxxpl.demo.controller;
+package com.agnostic.demo.controller;
 
-import com.devoxxpl.business.model.QuoteDto;
-import com.devoxxpl.business.service.QuoteService;
+import com.agnostic.business.model.QuoteDto;
+import com.agnostic.business.service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

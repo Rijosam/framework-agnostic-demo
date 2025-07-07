@@ -1,8 +1,8 @@
-package com.devoxxpl.demo.config;
+package com.agnostic.demo.config;
 
-import com.devoxxpl.business.service.QuoteService;
-import com.devoxxpl.business.service.QuoteServiceImpl;
-import com.devoxxpl.database.repository.QuoteRepository;
+import com.agnostic.business.service.QuoteService;
+import com.agnostic.business.service.QuoteServiceImpl;
+import com.agnostic.database.repository.QuoteRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
