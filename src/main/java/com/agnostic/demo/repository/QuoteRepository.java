@@ -1,6 +1,6 @@
-package com.devoxxpl.demo.repository;
+package com.agnostic.demo.repository;
 
-import com.devoxxpl.demo.model.Quote;
+import com.agnostic.demo.model.Quote;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface QuoteRepository extends JpaRepository<Quote, Long> {

@@ -1,7 +1,7 @@
-package com.devoxxpl.demo.service;
+package com.agnostic.demo.service;
 
-import com.devoxxpl.demo.model.Quote;
-import com.devoxxpl.demo.repository.QuoteRepository;
+import com.agnostic.demo.model.Quote;
+import com.agnostic.demo.repository.QuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.devoxxpl.demo;
+package com.agnostic.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

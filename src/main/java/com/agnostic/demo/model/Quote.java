@@ -1,4 +1,4 @@
-package com.devoxxpl.demo.model;
+package com.agnostic.demo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,7 +1,7 @@
-package com.devoxxpl.demo.controller;
+package com.agnostic.demo.controller;
 
-import com.devoxxpl.demo.model.Quote;
-import com.devoxxpl.demo.service.QuoteService;
+import com.agnostic.demo.model.Quote;
+import com.agnostic.demo.service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
