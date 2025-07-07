@@ -1,7 +1,7 @@
-package com.devoxxpl.database.repository;
+package com.agnostic.database.repository;
 
 
-import com.devoxxpl.database.entity.Quote;
+import com.agnostic.database.entity.Quote;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;

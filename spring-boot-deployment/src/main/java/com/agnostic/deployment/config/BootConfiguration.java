@@ -1,6 +1,6 @@
-package com.devoxxpl.deployment.config;
+package com.agnostic.deployment.config;
 
-import com.devoxxpl.business.service.QuoteService;
+import com.agnostic.business.service.QuoteService;
 import jakarta.persistence.EntityManagerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

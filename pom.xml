@@ -9,7 +9,7 @@
         <version>3.5.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.devoxxpl</groupId>
+    <groupId>com.agnostic</groupId>
     <artifactId>framework-agnostic-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>framework-agnostic-demo</name>

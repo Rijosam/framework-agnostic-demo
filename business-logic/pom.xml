@@ -8,14 +8,14 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <parent>
-        <groupId>com.devoxxpl</groupId>
+        <groupId>com.agnostic</groupId>
         <artifactId>framework-agnostic-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.devoxxpl</groupId>
+            <groupId>com.agnostic</groupId>
             <artifactId>database-module</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

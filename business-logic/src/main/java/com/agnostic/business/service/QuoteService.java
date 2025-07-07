@@ -1,9 +1,9 @@
-package com.devoxxpl.business.service;
+package com.agnostic.business.service;
 
 
-import com.devoxxpl.business.model.QuoteDto;
-import com.devoxxpl.database.entity.Quote;
-import com.devoxxpl.database.repository.QuoteRepository;
+import com.agnostic.business.model.QuoteDto;
+import com.agnostic.database.entity.Quote;
+import com.agnostic.database.repository.QuoteRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
