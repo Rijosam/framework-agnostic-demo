@@ -31,7 +31,7 @@
 
     <modules>
         <module>business-logic</module>
-        <module>spring-boot-deployment</module>
+        <module>quarkus-deployment</module>
         <module>database-module</module>
     </modules>
 
