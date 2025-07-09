@@ -1,8 +1,8 @@
-package com.devoxxpl.demo.controller;
+package com.agnostic.deployment.controller;
 
 
-import com.devoxxpl.business.model.QuoteDto;
-import com.devoxxpl.business.service.QuoteService;
+import com.agnostic.business.model.QuoteDto;
+import com.agnostic.business.service.QuoteService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 

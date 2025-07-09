@@ -1,6 +1,6 @@
-package com.devoxxpl.demo.config;
+package com.agnostic.deployment.config;
 
-import com.devoxxpl.business.service.QuoteService;
+import com.agnostic.business.service.QuoteService;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.inject.Inject;
