@@ -2,13 +2,8 @@ package com.agnostic.database.repository;
 
 
 import com.agnostic.database.entity.Quote;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 
-public interface QuoteRepository {
-    void saveQuote(Quote quote);
-    Optional<Quote> findQuoteById(Long id);
-    List<Quote> findAllQuotes();
+public interface QuoteRepository extends JpaRepository<Quote, Long> {
 }
