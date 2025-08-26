@@ -1,7 +1,7 @@
 package com.agnostic.demo.service;
 
-import com.agnostic.demo.model.Quote;
+import com.agnostic.demo.model.QuoteDto;
 
 public interface QuoteService {
-    Quote getRandomQuote();
+    QuoteDto getRandomQuote();
 }
