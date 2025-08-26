@@ -3,75 +3,44 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+
     <groupId>com.agnostic</groupId>
     <artifactId>framework-agnostic-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>framework-agnostic-demo</name>
     <description>Demo project for Framework Agnostic Design</description>
-    <dependencies>
 
-    </dependencies>
     <packaging>pom</packaging>
+
     <properties>
-        <java.version>21</java.version>
-        <spring-boot-version>3.4.5</spring-boot-version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <compiler-plugin.version>3.14.0</compiler-plugin.version>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <h2.version>2.3.232</h2.version>
-        <jakarta.inject-api.version>2.0.1</jakarta.inject-api.version>
-        <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+        <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
+        <quarkus.platform.version>3.23.2</quarkus.platform.version>
+        <skipITs>true</skipITs>
+        <surefire-plugin.version>3.5.3</surefire-plugin.version>
+        <quarkus-jdbc-h2.version>3.23.2</quarkus-jdbc-h2.version>
     </properties>
 
     <modules>
-        <module>business-logic</module>
-        <module>spring-boot-deployment</module>
         <module>database-module</module>
+        <module>business-logic</module>
+        <module>quarkus-deployment</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>jakarta.inject</groupId>
-                <artifactId>jakarta.inject-api</artifactId>
-                <version>${jakarta.inject-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.persistence</groupId>
-                <artifactId>jakarta.persistence-api</artifactId>
-                <version>${jakarta.persistence-api.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>${spring-boot-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.h2database</groupId>
-                <artifactId>h2</artifactId>
-                <version>${h2.version}</version>
-                <scope>runtime</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-test</artifactId>
-                <version>${spring-boot-version}</version>
-                <scope>test</scope>
+                <groupId>${quarkus.platform.group-id}</groupId>
+                <artifactId>${quarkus.platform.artifact-id}</artifactId>
+                <version>${quarkus.platform.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
 
 </project>
