@@ -1,4 +1,4 @@
-package com.agnostic.demo.controller;
+package com.agnostic.deployment.controller;
 
 import com.agnostic.business.model.QuoteDto;
 import com.agnostic.business.service.QuoteService;

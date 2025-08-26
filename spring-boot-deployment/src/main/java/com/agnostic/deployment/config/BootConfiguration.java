@@ -1,4 +1,4 @@
-package com.agnostic.demo.config;
+package com.agnostic.deployment.config;
 
 import com.agnostic.business.service.QuoteService;
 import com.agnostic.business.service.QuoteServiceImpl;
