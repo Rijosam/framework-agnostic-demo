@@ -1,6 +1,7 @@
 package com.agnostic.demo.service;
 
 import com.agnostic.demo.model.Quote;
+import com.agnostic.demo.model.QuoteDto;
 import com.agnostic.demo.repository.QuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +21,14 @@ public class QuoteServiceImpl implements QuoteService {
     }
 
     @Override
-    public Quote getRandomQuote() {
+    public QuoteDto getRandomQuote() {
         List<Quote> quotes = quoteRepository.findAll();
         if (quotes.isEmpty()) {
             return null;
         }
         int index = random.nextInt(quotes.size());
-        return quotes.get(index);
+        Quote quote = quotes.get(index);
+        return new QuoteDto(quote.getCharacter(), quote.getText());
     }
 }
 
