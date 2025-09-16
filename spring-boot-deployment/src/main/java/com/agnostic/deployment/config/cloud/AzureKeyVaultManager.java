@@ -2,6 +2,7 @@ package com.agnostic.deployment.config.cloud;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
 import jakarta.ws.rs.client.WebTarget;
@@ -13,8 +14,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AzureKeyVaultManager {
 
-    WebTarget webTarget;
-    ObjectMapper objectMapper = new ObjectMapper();
+    private final Client client;
+    private final ObjectMapper objectMapper;
+
+    public AzureKeyVaultManager() {
+        this.client = ClientBuilder.newBuilder().build();
+        this.objectMapper = new ObjectMapper();
+    }
 
     public Secret getSecret() {
         String secretName ="password";
@@ -23,7 +29,8 @@ public class AzureKeyVaultManager {
         String secretEndpoint = vaultUrl + "/secrets/" + secretName + "?api-version=7.3";
 
         try {
-            webTarget = ClientBuilder.newBuilder().build().target(secretEndpoint);
+
+            WebTarget webTarget = client.target(secretEndpoint);
             Response response = webTarget
                     .request(MediaType.APPLICATION_JSON)
                     .header("Authorization", "Bearer " + accessToken)
@@ -55,7 +62,7 @@ public class AzureKeyVaultManager {
 
         String tokenUrl = "https://login.microsoftonline.com/" + azureTenantId + "/oauth2/v2.0/token";
 
-        webTarget = ClientBuilder.newBuilder().build().target(tokenUrl);
+        WebTarget webTarget = client.target(tokenUrl);
         Response response = webTarget
                 .request(MediaType.APPLICATION_FORM_URLENCODED)
                 .post(Entity.form(form));
