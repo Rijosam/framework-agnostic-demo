@@ -7,4 +7,3 @@ This branch contains the base application for the talk **"Java Beyond Frameworks
 
 ## App Preview
 ![App Preview](app.png)
-.
