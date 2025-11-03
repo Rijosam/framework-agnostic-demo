@@ -35,7 +35,7 @@
     <packaging>pom</packaging>
     <properties>
         <java.version>25</java.version>
-        <spring-boot-version>3.4.5</spring-boot-version>
+        <spring-boot-version>3.5.7</spring-boot-version>
         <maven.compiler.source>25</maven.compiler.source>
         <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
