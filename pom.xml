@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.agnostic</groupId>
@@ -34,10 +34,10 @@
     </dependencies>
     <packaging>pom</packaging>
     <properties>
-        <java.version>21</java.version>
+        <java.version>25</java.version>
         <spring-boot-version>3.4.5</spring-boot-version>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <h2.version>2.3.232</h2.version>
         <jakarta.inject-api.version>2.0.1</jakarta.inject-api.version>
