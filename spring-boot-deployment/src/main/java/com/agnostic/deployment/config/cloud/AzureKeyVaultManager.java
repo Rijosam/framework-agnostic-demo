@@ -1,7 +1,8 @@
 package com.agnostic.deployment.config.cloud;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
@@ -19,7 +20,7 @@ public class AzureKeyVaultManager {
 
     public AzureKeyVaultManager() {
         this.client = ClientBuilder.newBuilder().build();
-        this.objectMapper = new ObjectMapper();
+        this.objectMapper = new JsonMapper();
     }
 
     public Secret getSecret() {
@@ -41,7 +42,7 @@ public class AzureKeyVaultManager {
             }
             String body = response.readEntity(String.class);
             JsonNode root = objectMapper.readTree(body);
-            String value = root.get("value").asText();
+            String value = root.get("value").asString();
             return new Secret(secretName, value);
         } catch (Exception e) {
             throw new RuntimeException("Error fetching secret from Azure Key Vault", e);
@@ -74,7 +75,7 @@ public class AzureKeyVaultManager {
         try {
             String body = response.readEntity(String.class);
             JsonNode root = objectMapper.readTree(body);
-            return root.get("access_token").asText();
+            return root.get("access_token").asString();
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse access token from response.", e);

@@ -2,7 +2,7 @@ package com.agnostic.deployment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.persistence.autoconfigure.EntityScan;
 
 @SpringBootApplication(scanBasePackages = {"com.agnostic.deployment"})
 @EntityScan(basePackages = "com.agnostic.database.entity") //for initializing the database using import.sql
