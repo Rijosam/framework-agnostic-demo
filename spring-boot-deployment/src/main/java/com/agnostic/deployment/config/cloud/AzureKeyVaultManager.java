@@ -1,24 +1,94 @@
 package com.agnostic.deployment.config.cloud;
 
-import com.azure.identity.ClientSecretCredentialBuilder;
-import com.azure.security.keyvault.secrets.SecretClientBuilder;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.WebTarget;
+import jakarta.ws.rs.core.Form;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Manages direct REST-based access to Azure Key Vault secrets.
+ * <p>
+ * This class intentionally uses Jakarta REST/Jersey client APIs instead of the Azure SDK.
+ * It manually obtains an OAuth 2.0 access token from Microsoft Entra ID using the
+ * client credentials flow, then calls the Azure Key Vault REST API to retrieve secrets.
+ * </p>
+ */
 @Configuration
 public class AzureKeyVaultManager {
 
-    public Secret getSecret() {
-        var credential = new ClientSecretCredentialBuilder()
-                .tenantId(System.getenv("AZURE_TENANT_ID"))
-                .clientId(System.getenv("TEST_SPN_CLIENT_ID"))
-                .clientSecret(System.getenv("TEST_SPN_CLIENT_SECRET"))
-                .build();
+    private final Client client;
+    private final ObjectMapper objectMapper;
 
-        var secretClient = new SecretClientBuilder()
-                .vaultUrl("https://agnostic-demo.vault.azure.net")
-                .credential(credential)
-                .buildClient();
-        var retrievedSecret = secretClient.getSecret("password");
-        return new Secret(retrievedSecret.getName(), retrievedSecret.getValue());
+    public AzureKeyVaultManager() {
+        this.client = ClientBuilder.newBuilder().build();
+        this.objectMapper = new JsonMapper();
     }
+
+    public Secret getSecret() {
+        String secretName ="password";
+        String accessToken = getAccessToken();
+        String vaultUrl = "https://agnostic-demo.vault.azure.net";
+        String secretEndpoint = vaultUrl + "/secrets/" + secretName + "?api-version=7.3";
+
+        try {
+
+            WebTarget webTarget = client.target(secretEndpoint);
+            Response response = webTarget
+                    .request(MediaType.APPLICATION_JSON)
+                    .header("Authorization", "Bearer " + accessToken)
+                    .get();
+
+            if (response.getStatus() != 200) {
+                throw new RuntimeException("Failed to retrieve secret");
+            }
+            String body = response.readEntity(String.class);
+            JsonNode root = objectMapper.readTree(body);
+            String value = root.get("value").asString();
+            return new Secret(secretName, value);
+        } catch (Exception e) {
+            throw new RuntimeException("Error fetching secret from Azure Key Vault", e);
+        }
+    }
+
+
+    private String getAccessToken() {
+
+        String azureTenantId = System.getenv("AZURE_TENANT_ID");
+        String clientId = System.getenv("TEST_SPN_CLIENT_ID");
+        String clientSecret = System.getenv("TEST_SPN_CLIENT_SECRET");
+        Form form = new Form()
+                .param("grant_type", "client_credentials")
+                .param("client_id", clientId)
+                .param("client_secret", clientSecret)
+                .param("scope", "https://vault.azure.net/.default");
+
+        String tokenUrl = "https://login.microsoftonline.com/" + azureTenantId + "/oauth2/v2.0/token";
+
+        WebTarget webTarget = client.target(tokenUrl);
+        Response response = webTarget
+                .request(MediaType.APPLICATION_FORM_URLENCODED)
+                .post(Entity.form(form));
+
+        if (response.getStatus() != 200) {
+            throw new RuntimeException("Failed to obtain access token");
+        }
+
+        try {
+            String body = response.readEntity(String.class);
+            JsonNode root = objectMapper.readTree(body);
+            return root.get("access_token").asString();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to parse access token from response.", e);
+        }
+    }
+
 }
+
