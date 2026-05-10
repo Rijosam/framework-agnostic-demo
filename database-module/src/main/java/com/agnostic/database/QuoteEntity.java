@@ -1,12 +1,10 @@
-package com.agnostic.database.entity;
+package com.agnostic.database;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class Quote {
+@Table(name = "quote")
+public class QuoteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +14,9 @@ public class Quote {
     private String character;
 
     // Constructors
-    public Quote() {}
+    public QuoteEntity() {}
 
-    public Quote(String text, String character) {
+    public QuoteEntity(String text, String character) {
         this.text = text;
         this.character = character;
     }

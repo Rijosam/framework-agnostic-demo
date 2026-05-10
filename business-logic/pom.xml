@@ -5,7 +5,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>business-logic</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
 
     <parent>
         <groupId>com.agnostic</groupId>
@@ -13,12 +12,4 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.agnostic</groupId>
-            <artifactId>database-module</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-    
 </project>

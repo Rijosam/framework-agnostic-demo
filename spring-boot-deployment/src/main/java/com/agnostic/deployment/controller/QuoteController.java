@@ -1,7 +1,7 @@
 package com.agnostic.deployment.controller;
 
-import com.agnostic.business.model.QuoteDto;
-import com.agnostic.business.service.QuoteService;
+import com.agnostic.business.Quote;
+import com.agnostic.business.QuoteService;
 import com.agnostic.deployment.config.cloud.AzureKeyVaultManager;
 import com.agnostic.deployment.config.cloud.Secret;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,8 @@ public class QuoteController {
     }
 
     @GetMapping("/quote")
-    public QuoteDto getRandomQuote() {
-        QuoteDto randomQuote = quoteService.getRandomQuote();
+    public Quote getRandomQuote() {
+        Quote randomQuote = quoteService.getRandomQuote();
         if (randomQuote == null) {
             throw new RuntimeException("No quotes found in the database.");
         }
