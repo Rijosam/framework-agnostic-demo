@@ -4,6 +4,13 @@ import com.azure.identity.ClientSecretCredentialBuilder;
 import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Spring configuration component responsible for retrieving secrets from Azure Key Vault.
+ * <p>
+ * This manager creates the required Azure credentials from environment variables and uses
+ * an Azure Key Vault secret client to fetch application secrets.
+ * </p>
+ */
 @Configuration
 public class AzureKeyVaultManager {
 
