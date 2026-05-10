@@ -1,5 +1,6 @@
 package com.agnostic.deployment.config.cloud;
 
+import jakarta.enterprise.context.ApplicationScoped;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.json.JsonMapper;
@@ -10,7 +11,6 @@ import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.Form;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * Manages direct REST-based access to Azure Key Vault secrets.
@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Configuration;
  * client credentials flow, then calls the Azure Key Vault REST API to retrieve secrets.
  * </p>
  */
-@Configuration
+@ApplicationScoped
 public class AzureKeyVaultManager {
 
     private final Client client;
