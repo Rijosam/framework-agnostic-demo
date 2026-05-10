@@ -3,14 +3,14 @@ package com.agnostic.deployment.config;
 import com.agnostic.business.QuoteService;
 import com.agnostic.business.QuoteServiceImpl;
 import com.agnostic.database.QuoteProviderImpl;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.EntityManagerFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import jakarta.ws.rs.Produces;
 
-@Configuration
-public class BootConfiguration {
+public class QuarkusConfiguration {
 
-    @Bean
+    @Produces
+    @ApplicationScoped
     public QuoteService quoteService(EntityManagerFactory entityManagerFactory) {
         return new QuoteServiceImpl(new QuoteProviderImpl(entityManagerFactory));
     }
